@@ -1,0 +1,5 @@
+
+CREATE TABLE RUN (
+  id  UUID PRIMARY KEY,
+  state VARCHAR(128)
+);

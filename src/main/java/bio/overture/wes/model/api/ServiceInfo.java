@@ -1,4 +1,4 @@
-package bio.overture.wes.model;
+package bio.overture.wes.model.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;

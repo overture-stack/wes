@@ -1,6 +1,6 @@
 package bio.overture.wes.controller.api;
 
-import bio.overture.wes.model.ServiceInfo;
+import bio.overture.wes.model.api.ServiceInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;

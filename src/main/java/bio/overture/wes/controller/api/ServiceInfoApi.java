@@ -1,7 +1,7 @@
 package bio.overture.wes.controller.api;
 
-import bio.overture.wes.model.ErrorResponse;
-import bio.overture.wes.model.ServiceInfo;
+import bio.overture.wes.model.api.ErrorResponse;
+import bio.overture.wes.model.api.ServiceInfo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

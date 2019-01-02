@@ -1,6 +1,6 @@
 package bio.overture.wes.controller.api;
 
-import bio.overture.wes.model.*;
+import bio.overture.wes.model.api.*;
 import io.swagger.annotations.*;
 import java.util.List;
 import javax.validation.Valid;
