@@ -3,16 +3,17 @@ package bio.overture.wes.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
-@ApiModel(description = "The service will return a RunListResponse when receiving a successful RunListRequest.")
+@ApiModel(
+    description =
+        "The service will return a RunListResponse when receiving a successful RunListRequest.")
 @Validated
-public class RunListResponse   {
+public class RunListResponse {
   @JsonProperty("runs")
   @Valid
   private List<RunStatus> runs = null;
@@ -34,13 +35,15 @@ public class RunListResponse   {
   }
 
   /**
-   * A list of workflow runs that the service has executed or is executing. The list is filtered to only include runs that the caller has permission to see.
+   * A list of workflow runs that the service has executed or is executing. The list is filtered to
+   * only include runs that the caller has permission to see.
+   *
    * @return runs
-   **/
-  @ApiModelProperty(value = "A list of workflow runs that the service has executed or is executing. The list is filtered to only include runs that the caller has permission to see.")
-
+   */
+  @ApiModelProperty(
+      value =
+          "A list of workflow runs that the service has executed or is executing. The list is filtered to only include runs that the caller has permission to see.")
   @Valid
-
   public List<RunStatus> getRuns() {
     return runs;
   }
@@ -55,12 +58,14 @@ public class RunListResponse   {
   }
 
   /**
-   * A token which may be supplied as `page_token` in workflow run list request to get the next page of results.  An empty string indicates there are no more items to return.
+   * A token which may be supplied as `page_token` in workflow run list request to get the next page
+   * of results. An empty string indicates there are no more items to return.
+   *
    * @return nextPageToken
-   **/
-  @ApiModelProperty(value = "A token which may be supplied as `page_token` in workflow run list request to get the next page of results.  An empty string indicates there are no more items to return.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "A token which may be supplied as `page_token` in workflow run list request to get the next page of results.  An empty string indicates there are no more items to return.")
   public String getNextPageToken() {
     return nextPageToken;
   }
@@ -68,7 +73,6 @@ public class RunListResponse   {
   public void setNextPageToken(String nextPageToken) {
     this.nextPageToken = nextPageToken;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -79,8 +83,8 @@ public class RunListResponse   {
       return false;
     }
     RunListResponse runListResponse = (RunListResponse) o;
-    return Objects.equals(this.runs, runListResponse.runs) &&
-      Objects.equals(this.nextPageToken, runListResponse.nextPageToken);
+    return Objects.equals(this.runs, runListResponse.runs)
+        && Objects.equals(this.nextPageToken, runListResponse.nextPageToken);
   }
 
   @Override
@@ -100,8 +104,7 @@ public class RunListResponse   {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

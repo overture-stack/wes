@@ -2,13 +2,12 @@ package bio.overture.wes.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.validation.Valid;
 
-public class RunLog   {
+public class RunLog {
   @JsonProperty("run_id")
   private String runId = null;
 
@@ -35,11 +34,10 @@ public class RunLog   {
 
   /**
    * workflow run ID
+   *
    * @return runId
-   **/
+   */
   @ApiModelProperty(value = "workflow run ID")
-
-
   public String getRunId() {
     return runId;
   }
@@ -55,12 +53,11 @@ public class RunLog   {
 
   /**
    * The original request message used to initiate this execution.
+   *
    * @return request
-   **/
+   */
   @ApiModelProperty(value = "The original request message used to initiate this execution.")
-
   @Valid
-
   public RunRequest getRequest() {
     return request;
   }
@@ -76,12 +73,11 @@ public class RunLog   {
 
   /**
    * The state of the run e.g. RUNNING (see State)
+   *
    * @return state
-   **/
+   */
   @ApiModelProperty(value = "The state of the run e.g. RUNNING (see State)")
-
   @Valid
-
   public State getState() {
     return state;
   }
@@ -97,12 +93,13 @@ public class RunLog   {
 
   /**
    * The logs, and other key info like timing and exit code, for the overall run of this workflow.
+   *
    * @return runLog
-   **/
-  @ApiModelProperty(value = "The logs, and other key info like timing and exit code, for the overall run of this workflow.")
-
+   */
+  @ApiModelProperty(
+      value =
+          "The logs, and other key info like timing and exit code, for the overall run of this workflow.")
   @Valid
-
   public Log getRunLog() {
     return runLog;
   }
@@ -126,12 +123,13 @@ public class RunLog   {
 
   /**
    * The logs, and other key info like timing and exit code, for each step in the workflow run.
+   *
    * @return taskLogs
-   **/
-  @ApiModelProperty(value = "The logs, and other key info like timing and exit code, for each step in the workflow run.")
-
+   */
+  @ApiModelProperty(
+      value =
+          "The logs, and other key info like timing and exit code, for each step in the workflow run.")
   @Valid
-
   public List<Log> getTaskLogs() {
     return taskLogs;
   }
@@ -147,11 +145,10 @@ public class RunLog   {
 
   /**
    * The outputs from the workflow run.
+   *
    * @return outputs
-   **/
+   */
   @ApiModelProperty(value = "The outputs from the workflow run.")
-
-
   public Object getOutputs() {
     return outputs;
   }
@@ -159,7 +156,6 @@ public class RunLog   {
   public void setOutputs(Object outputs) {
     this.outputs = outputs;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,12 +166,12 @@ public class RunLog   {
       return false;
     }
     RunLog runLog = (RunLog) o;
-    return Objects.equals(this.runId, runLog.runId) &&
-      Objects.equals(this.request, runLog.request) &&
-      Objects.equals(this.state, runLog.state) &&
-      Objects.equals(this.runLog, runLog.runLog) &&
-      Objects.equals(this.taskLogs, runLog.taskLogs) &&
-      Objects.equals(this.outputs, runLog.outputs);
+    return Objects.equals(this.runId, runLog.runId)
+        && Objects.equals(this.request, runLog.request)
+        && Objects.equals(this.state, runLog.state)
+        && Objects.equals(this.runLog, runLog.runLog)
+        && Objects.equals(this.taskLogs, runLog.taskLogs)
+        && Objects.equals(this.outputs, runLog.outputs);
   }
 
   @Override
@@ -185,19 +181,30 @@ public class RunLog   {
 
   @Override
   public String toString() {
-    return "class RunLog {\n" +
-      "    runId: " + toIndentedString(runId) + "\n" +
-      "    request: " + toIndentedString(request) + "\n" +
-      "    state: " + toIndentedString(state) + "\n" +
-      "    runLog: " + toIndentedString(runLog) + "\n" +
-      "    taskLogs: " + toIndentedString(taskLogs) + "\n" +
-      "    outputs: " + toIndentedString(outputs) + "\n" +
-      "}";
+    return "class RunLog {\n"
+        + "    runId: "
+        + toIndentedString(runId)
+        + "\n"
+        + "    request: "
+        + toIndentedString(request)
+        + "\n"
+        + "    state: "
+        + toIndentedString(state)
+        + "\n"
+        + "    runLog: "
+        + toIndentedString(runLog)
+        + "\n"
+        + "    taskLogs: "
+        + toIndentedString(taskLogs)
+        + "\n"
+        + "    outputs: "
+        + toIndentedString(outputs)
+        + "\n"
+        + "}";
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

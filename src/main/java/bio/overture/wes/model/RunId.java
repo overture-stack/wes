@@ -2,7 +2,6 @@ package bio.overture.wes.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
 import java.util.Objects;
 
 public class RunId {
@@ -18,10 +17,8 @@ public class RunId {
    * workflow run ID
    *
    * @return runId
-   **/
+   */
   @ApiModelProperty(value = "workflow run ID")
-
-
   public String getRunId() {
     return runId;
   }
@@ -29,7 +26,6 @@ public class RunId {
   public void setRunId(String runId) {
     this.runId = runId;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -50,14 +46,11 @@ public class RunId {
 
   @Override
   public String toString() {
-    return "class RunId {\n" +
-      "    runId: " + toIndentedString(runId) + "\n" +
-      "}";
+    return "class RunId {\n" + "    runId: " + toIndentedString(runId) + "\n" + "}";
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

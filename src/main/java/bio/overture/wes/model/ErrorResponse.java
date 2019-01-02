@@ -3,13 +3,12 @@ package bio.overture.wes.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
 import java.util.Objects;
+import org.springframework.validation.annotation.Validated;
 
 @ApiModel(description = "An object that can optionally include information about the error.")
 @Validated
-public class ErrorResponse   {
+public class ErrorResponse {
   @JsonProperty("msg")
   private String msg = null;
 
@@ -23,11 +22,10 @@ public class ErrorResponse   {
 
   /**
    * A detailed error message.
+   *
    * @return msg
-   **/
+   */
   @ApiModelProperty(value = "A detailed error message.")
-
-
   public String getMsg() {
     return msg;
   }
@@ -43,11 +41,10 @@ public class ErrorResponse   {
 
   /**
    * The integer representing the HTTP status code (e.g. 200, 404).
+   *
    * @return statusCode
-   **/
+   */
   @ApiModelProperty(value = "The integer representing the HTTP status code (e.g. 200, 404).")
-
-
   public Integer getStatusCode() {
     return statusCode;
   }
@@ -55,7 +52,6 @@ public class ErrorResponse   {
   public void setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,8 +62,8 @@ public class ErrorResponse   {
       return false;
     }
     ErrorResponse errorResponse = (ErrorResponse) o;
-    return Objects.equals(this.msg, errorResponse.msg) &&
-      Objects.equals(this.statusCode, errorResponse.statusCode);
+    return Objects.equals(this.msg, errorResponse.msg)
+        && Objects.equals(this.statusCode, errorResponse.statusCode);
   }
 
   @Override
@@ -77,15 +73,18 @@ public class ErrorResponse   {
 
   @Override
   public String toString() {
-    return "class ErrorResponse {\n" +
-      "    msg: " + toIndentedString(msg) + "\n" +
-      "    statusCode: " + toIndentedString(statusCode) + "\n" +
-      "}";
+    return "class ErrorResponse {\n"
+        + "    msg: "
+        + toIndentedString(msg)
+        + "\n"
+        + "    statusCode: "
+        + toIndentedString(statusCode)
+        + "\n"
+        + "}";
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -94,5 +93,3 @@ public class ErrorResponse   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-
-

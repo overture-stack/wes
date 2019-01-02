@@ -3,16 +3,17 @@ package bio.overture.wes.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import javax.validation.Valid;
+import org.springframework.validation.annotation.Validated;
 
-@ApiModel(description = "To execute a workflow, send a run request including all the details needed to begin downloading and executing a given workflow.")
+@ApiModel(
+    description =
+        "To execute a workflow, send a run request including all the details needed to begin downloading and executing a given workflow.")
 @Validated
-public class RunRequest   {
+public class RunRequest {
   @JsonProperty("workflow_params")
   private Object workflowParams = null;
 
@@ -39,12 +40,14 @@ public class RunRequest   {
   }
 
   /**
-   * REQUIRED The workflow run parameterizations (JSON encoded), including input and output file locations
+   * REQUIRED The workflow run parameterizations (JSON encoded), including input and output file
+   * locations
+   *
    * @return workflowParams
-   **/
-  @ApiModelProperty(value = "REQUIRED The workflow run parameterizations (JSON encoded), including input and output file locations")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "REQUIRED The workflow run parameterizations (JSON encoded), including input and output file locations")
   public Object getWorkflowParams() {
     return workflowParams;
   }
@@ -59,12 +62,14 @@ public class RunRequest   {
   }
 
   /**
-   * REQUIRED The workflow descriptor type, must be \"CWL\" or \"WDL\" currently (or another alternative supported by this WES instance)
+   * REQUIRED The workflow descriptor type, must be \"CWL\" or \"WDL\" currently (or another
+   * alternative supported by this WES instance)
+   *
    * @return workflowType
-   **/
-  @ApiModelProperty(value = "REQUIRED The workflow descriptor type, must be \"CWL\" or \"WDL\" currently (or another alternative supported by this WES instance)")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "REQUIRED The workflow descriptor type, must be \"CWL\" or \"WDL\" currently (or another alternative supported by this WES instance)")
   public String getWorkflowType() {
     return workflowType;
   }
@@ -80,11 +85,12 @@ public class RunRequest   {
 
   /**
    * REQUIRED The workflow descriptor type version, must be one supported by this WES instance
+   *
    * @return workflowTypeVersion
-   **/
-  @ApiModelProperty(value = "REQUIRED The workflow descriptor type version, must be one supported by this WES instance")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "REQUIRED The workflow descriptor type version, must be one supported by this WES instance")
   public String getWorkflowTypeVersion() {
     return workflowTypeVersion;
   }
@@ -107,12 +113,14 @@ public class RunRequest   {
   }
 
   /**
-   * OPTIONAL A key-value map of arbitrary metadata outside the scope of `workflow_params` but useful to track with this run request
+   * OPTIONAL A key-value map of arbitrary metadata outside the scope of `workflow_params` but
+   * useful to track with this run request
+   *
    * @return tags
-   **/
-  @ApiModelProperty(value = "OPTIONAL A key-value map of arbitrary metadata outside the scope of `workflow_params` but useful to track with this run request")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "OPTIONAL A key-value map of arbitrary metadata outside the scope of `workflow_params` but useful to track with this run request")
   public Map<String, String> getTags() {
     return tags;
   }
@@ -126,7 +134,8 @@ public class RunRequest   {
     return this;
   }
 
-  public RunRequest putWorkflowEngineParametersItem(String key, String workflowEngineParametersItem) {
+  public RunRequest putWorkflowEngineParametersItem(
+      String key, String workflowEngineParametersItem) {
     if (this.workflowEngineParameters == null) {
       this.workflowEngineParameters = new HashMap<String, String>();
     }
@@ -135,12 +144,14 @@ public class RunRequest   {
   }
 
   /**
-   * OPTIONAL Additional parameters can be sent to the workflow engine using this field. Default values for these parameters can be obtained using the ServiceInfo endpoint.
+   * OPTIONAL Additional parameters can be sent to the workflow engine using this field. Default
+   * values for these parameters can be obtained using the ServiceInfo endpoint.
+   *
    * @return workflowEngineParameters
-   **/
-  @ApiModelProperty(value = "OPTIONAL Additional parameters can be sent to the workflow engine using this field. Default values for these parameters can be obtained using the ServiceInfo endpoint.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "OPTIONAL Additional parameters can be sent to the workflow engine using this field. Default values for these parameters can be obtained using the ServiceInfo endpoint.")
   public Map<String, String> getWorkflowEngineParameters() {
     return workflowEngineParameters;
   }
@@ -155,12 +166,14 @@ public class RunRequest   {
   }
 
   /**
-   * REQUIRED The workflow CWL or WDL document. When `workflow_attachments` is used to attach files, the `workflow_url` may be a relative path to one of the attachments.
+   * REQUIRED The workflow CWL or WDL document. When `workflow_attachments` is used to attach files,
+   * the `workflow_url` may be a relative path to one of the attachments.
+   *
    * @return workflowUrl
-   **/
-  @ApiModelProperty(value = "REQUIRED The workflow CWL or WDL document. When `workflow_attachments` is used to attach files, the `workflow_url` may be a relative path to one of the attachments.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "REQUIRED The workflow CWL or WDL document. When `workflow_attachments` is used to attach files, the `workflow_url` may be a relative path to one of the attachments.")
   public String getWorkflowUrl() {
     return workflowUrl;
   }
@@ -168,7 +181,6 @@ public class RunRequest   {
   public void setWorkflowUrl(String workflowUrl) {
     this.workflowUrl = workflowUrl;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -179,17 +191,23 @@ public class RunRequest   {
       return false;
     }
     RunRequest runRequest = (RunRequest) o;
-    return Objects.equals(this.workflowParams, runRequest.workflowParams) &&
-      Objects.equals(this.workflowType, runRequest.workflowType) &&
-      Objects.equals(this.workflowTypeVersion, runRequest.workflowTypeVersion) &&
-      Objects.equals(this.tags, runRequest.tags) &&
-      Objects.equals(this.workflowEngineParameters, runRequest.workflowEngineParameters) &&
-      Objects.equals(this.workflowUrl, runRequest.workflowUrl);
+    return Objects.equals(this.workflowParams, runRequest.workflowParams)
+        && Objects.equals(this.workflowType, runRequest.workflowType)
+        && Objects.equals(this.workflowTypeVersion, runRequest.workflowTypeVersion)
+        && Objects.equals(this.tags, runRequest.tags)
+        && Objects.equals(this.workflowEngineParameters, runRequest.workflowEngineParameters)
+        && Objects.equals(this.workflowUrl, runRequest.workflowUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workflowParams, workflowType, workflowTypeVersion, tags, workflowEngineParameters, workflowUrl);
+    return Objects.hash(
+        workflowParams,
+        workflowType,
+        workflowTypeVersion,
+        tags,
+        workflowEngineParameters,
+        workflowUrl);
   }
 
   @Override
@@ -199,17 +217,20 @@ public class RunRequest   {
 
     sb.append("    workflowParams: ").append(toIndentedString(workflowParams)).append("\n");
     sb.append("    workflowType: ").append(toIndentedString(workflowType)).append("\n");
-    sb.append("    workflowTypeVersion: ").append(toIndentedString(workflowTypeVersion)).append("\n");
+    sb.append("    workflowTypeVersion: ")
+        .append(toIndentedString(workflowTypeVersion))
+        .append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    workflowEngineParameters: ").append(toIndentedString(workflowEngineParameters)).append("\n");
+    sb.append("    workflowEngineParameters: ")
+        .append(toIndentedString(workflowEngineParameters))
+        .append("\n");
     sb.append("    workflowUrl: ").append(toIndentedString(workflowUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -218,4 +239,3 @@ public class RunRequest   {
     return o.toString().replace("\n", "\n    ");
   }
 }
-

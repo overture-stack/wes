@@ -2,13 +2,12 @@ package bio.overture.wes.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.*;
+import javax.validation.Valid;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Valid;
-import java.util.*;
-
 @Validated
-public class ServiceInfo   {
+public class ServiceInfo {
   @JsonProperty("workflow_type_versions")
   @Valid
   private Map<String, WorkflowTypeVersion> workflowTypeVersions = null;
@@ -48,7 +47,8 @@ public class ServiceInfo   {
     return this;
   }
 
-  public ServiceInfo putWorkflowTypeVersionsItem(String key, WorkflowTypeVersion workflowTypeVersionsItem) {
+  public ServiceInfo putWorkflowTypeVersionsItem(
+      String key, WorkflowTypeVersion workflowTypeVersionsItem) {
     if (this.workflowTypeVersions == null) {
       this.workflowTypeVersions = new HashMap<String, WorkflowTypeVersion>();
     }
@@ -57,13 +57,16 @@ public class ServiceInfo   {
   }
 
   /**
-   * A map with keys as the workflow format type name (currently only CWL and WDL are used although a service may support others) and value is a workflow_type_version object which simply contains an array of one or more version strings
+   * A map with keys as the workflow format type name (currently only CWL and WDL are used although
+   * a service may support others) and value is a workflow_type_version object which simply contains
+   * an array of one or more version strings
+   *
    * @return workflowTypeVersions
-   **/
-  @ApiModelProperty(value = "A map with keys as the workflow format type name (currently only CWL and WDL are used although a service may support others) and value is a workflow_type_version object which simply contains an array of one or more version strings")
-
+   */
+  @ApiModelProperty(
+      value =
+          "A map with keys as the workflow format type name (currently only CWL and WDL are used although a service may support others) and value is a workflow_type_version object which simply contains an array of one or more version strings")
   @Valid
-
   public Map<String, WorkflowTypeVersion> getWorkflowTypeVersions() {
     return workflowTypeVersions;
   }
@@ -87,11 +90,10 @@ public class ServiceInfo   {
 
   /**
    * The version(s) of the WES schema supported by this service
+   *
    * @return supportedWesVersions
-   **/
+   */
   @ApiModelProperty(value = "The version(s) of the WES schema supported by this service")
-
-
   public List<String> getSupportedWesVersions() {
     return supportedWesVersions;
   }
@@ -114,12 +116,16 @@ public class ServiceInfo   {
   }
 
   /**
-   * The filesystem protocols supported by this service, currently these may include common protocols using the terms 'http', 'https', 'sftp', 's3', 'gs', 'file', or 'synapse', but others  are possible and the terms beyond these core protocols are currently not fixed.   This section reports those protocols (either common or not) supported by this WES service.
+   * The filesystem protocols supported by this service, currently these may include common
+   * protocols using the terms 'http', 'https', 'sftp', 's3', 'gs', 'file', or 'synapse', but others
+   * are possible and the terms beyond these core protocols are currently not fixed. This section
+   * reports those protocols (either common or not) supported by this WES service.
+   *
    * @return supportedFilesystemProtocols
-   **/
-  @ApiModelProperty(value = "The filesystem protocols supported by this service, currently these may include common protocols using the terms 'http', 'https', 'sftp', 's3', 'gs', 'file', or 'synapse', but others  are possible and the terms beyond these core protocols are currently not fixed.   This section reports those protocols (either common or not) supported by this WES service.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "The filesystem protocols supported by this service, currently these may include common protocols using the terms 'http', 'https', 'sftp', 's3', 'gs', 'file', or 'synapse', but others  are possible and the terms beyond these core protocols are currently not fixed.   This section reports those protocols (either common or not) supported by this WES service.")
   public List<String> getSupportedFilesystemProtocols() {
     return supportedFilesystemProtocols;
   }
@@ -143,11 +149,12 @@ public class ServiceInfo   {
 
   /**
    * The engine(s) used by this WES service, key is engine name (e.g. Cromwell) and value is version
+   *
    * @return workflowEngineVersions
-   **/
-  @ApiModelProperty(value = "The engine(s) used by this WES service, key is engine name (e.g. Cromwell) and value is version")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "The engine(s) used by this WES service, key is engine name (e.g. Cromwell) and value is version")
   public Map<String, String> getWorkflowEngineVersions() {
     return workflowEngineVersions;
   }
@@ -156,12 +163,14 @@ public class ServiceInfo   {
     this.workflowEngineVersions = workflowEngineVersions;
   }
 
-  public ServiceInfo defaultWorkflowEngineParameters(List<DefaultWorkflowEngineParameter> defaultWorkflowEngineParameters) {
+  public ServiceInfo defaultWorkflowEngineParameters(
+      List<DefaultWorkflowEngineParameter> defaultWorkflowEngineParameters) {
     this.defaultWorkflowEngineParameters = defaultWorkflowEngineParameters;
     return this;
   }
 
-  public ServiceInfo addDefaultWorkflowEngineParametersItem(DefaultWorkflowEngineParameter defaultWorkflowEngineParametersItem) {
+  public ServiceInfo addDefaultWorkflowEngineParametersItem(
+      DefaultWorkflowEngineParameter defaultWorkflowEngineParametersItem) {
     if (this.defaultWorkflowEngineParameters == null) {
       this.defaultWorkflowEngineParameters = new ArrayList<DefaultWorkflowEngineParameter>();
     }
@@ -170,18 +179,21 @@ public class ServiceInfo   {
   }
 
   /**
-   * Each workflow engine can present additional parameters that can be sent to the workflow engine. This message will list the default values, and their types for each workflow engine.
+   * Each workflow engine can present additional parameters that can be sent to the workflow engine.
+   * This message will list the default values, and their types for each workflow engine.
+   *
    * @return defaultWorkflowEngineParameters
-   **/
-  @ApiModelProperty(value = "Each workflow engine can present additional parameters that can be sent to the workflow engine. This message will list the default values, and their types for each workflow engine.")
-
+   */
+  @ApiModelProperty(
+      value =
+          "Each workflow engine can present additional parameters that can be sent to the workflow engine. This message will list the default values, and their types for each workflow engine.")
   @Valid
-
   public List<DefaultWorkflowEngineParameter> getDefaultWorkflowEngineParameters() {
     return defaultWorkflowEngineParameters;
   }
 
-  public void setDefaultWorkflowEngineParameters(List<DefaultWorkflowEngineParameter> defaultWorkflowEngineParameters) {
+  public void setDefaultWorkflowEngineParameters(
+      List<DefaultWorkflowEngineParameter> defaultWorkflowEngineParameters) {
     this.defaultWorkflowEngineParameters = defaultWorkflowEngineParameters;
   }
 
@@ -199,12 +211,14 @@ public class ServiceInfo   {
   }
 
   /**
-   * The system statistics, key is the statistic, value is the count of runs in that state. See the State enum for the possible keys.
+   * The system statistics, key is the statistic, value is the count of runs in that state. See the
+   * State enum for the possible keys.
+   *
    * @return systemStateCounts
-   **/
-  @ApiModelProperty(value = "The system statistics, key is the statistic, value is the count of runs in that state. See the State enum for the possible keys.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "The system statistics, key is the statistic, value is the count of runs in that state. See the State enum for the possible keys.")
   public Map<String, Long> getSystemStateCounts() {
     return systemStateCounts;
   }
@@ -219,12 +233,14 @@ public class ServiceInfo   {
   }
 
   /**
-   * A web page URL with human-readable instructions on how to get an authorization token for use with a specific WES endpoint.
+   * A web page URL with human-readable instructions on how to get an authorization token for use
+   * with a specific WES endpoint.
+   *
    * @return authInstructionsUrl
-   **/
-  @ApiModelProperty(value = "A web page URL with human-readable instructions on how to get an authorization token for use with a specific WES endpoint.          ")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "A web page URL with human-readable instructions on how to get an authorization token for use with a specific WES endpoint.          ")
   public String getAuthInstructionsUrl() {
     return authInstructionsUrl;
   }
@@ -239,12 +255,15 @@ public class ServiceInfo   {
   }
 
   /**
-   * An email address URL (mailto:) or web page URL with contact information for the operator of a specific WES endpoint.  Users of the endpoint should use this to report problems or security vulnerabilities.
+   * An email address URL (mailto:) or web page URL with contact information for the operator of a
+   * specific WES endpoint. Users of the endpoint should use this to report problems or security
+   * vulnerabilities.
+   *
    * @return contactInfoUrl
-   **/
-  @ApiModelProperty(value = "An email address URL (mailto:) or web page URL with contact information for the operator of a specific WES endpoint.  Users of the endpoint should use this to report problems or security vulnerabilities.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "An email address URL (mailto:) or web page URL with contact information for the operator of a specific WES endpoint.  Users of the endpoint should use this to report problems or security vulnerabilities.")
   public String getContactInfoUrl() {
     return contactInfoUrl;
   }
@@ -267,12 +286,14 @@ public class ServiceInfo   {
   }
 
   /**
-   * A key-value map of arbitrary, extended metadata outside the scope of the above but useful to report back
+   * A key-value map of arbitrary, extended metadata outside the scope of the above but useful to
+   * report back
+   *
    * @return tags
-   **/
-  @ApiModelProperty(value = "A key-value map of arbitrary, extended metadata outside the scope of the above but useful to report back")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "A key-value map of arbitrary, extended metadata outside the scope of the above but useful to report back")
   public Map<String, String> getTags() {
     return tags;
   }
@@ -280,7 +301,6 @@ public class ServiceInfo   {
   public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -291,20 +311,31 @@ public class ServiceInfo   {
       return false;
     }
     ServiceInfo serviceInfo = (ServiceInfo) o;
-    return Objects.equals(this.workflowTypeVersions, serviceInfo.workflowTypeVersions) &&
-      Objects.equals(this.supportedWesVersions, serviceInfo.supportedWesVersions) &&
-      Objects.equals(this.supportedFilesystemProtocols, serviceInfo.supportedFilesystemProtocols) &&
-      Objects.equals(this.workflowEngineVersions, serviceInfo.workflowEngineVersions) &&
-      Objects.equals(this.defaultWorkflowEngineParameters, serviceInfo.defaultWorkflowEngineParameters) &&
-      Objects.equals(this.systemStateCounts, serviceInfo.systemStateCounts) &&
-      Objects.equals(this.authInstructionsUrl, serviceInfo.authInstructionsUrl) &&
-      Objects.equals(this.contactInfoUrl, serviceInfo.contactInfoUrl) &&
-      Objects.equals(this.tags, serviceInfo.tags);
+    return Objects.equals(this.workflowTypeVersions, serviceInfo.workflowTypeVersions)
+        && Objects.equals(this.supportedWesVersions, serviceInfo.supportedWesVersions)
+        && Objects.equals(
+            this.supportedFilesystemProtocols, serviceInfo.supportedFilesystemProtocols)
+        && Objects.equals(this.workflowEngineVersions, serviceInfo.workflowEngineVersions)
+        && Objects.equals(
+            this.defaultWorkflowEngineParameters, serviceInfo.defaultWorkflowEngineParameters)
+        && Objects.equals(this.systemStateCounts, serviceInfo.systemStateCounts)
+        && Objects.equals(this.authInstructionsUrl, serviceInfo.authInstructionsUrl)
+        && Objects.equals(this.contactInfoUrl, serviceInfo.contactInfoUrl)
+        && Objects.equals(this.tags, serviceInfo.tags);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(workflowTypeVersions, supportedWesVersions, supportedFilesystemProtocols, workflowEngineVersions, defaultWorkflowEngineParameters, systemStateCounts, authInstructionsUrl, contactInfoUrl, tags);
+    return Objects.hash(
+        workflowTypeVersions,
+        supportedWesVersions,
+        supportedFilesystemProtocols,
+        workflowEngineVersions,
+        defaultWorkflowEngineParameters,
+        systemStateCounts,
+        authInstructionsUrl,
+        contactInfoUrl,
+        tags);
   }
 
   @Override
@@ -312,13 +343,25 @@ public class ServiceInfo   {
     StringBuilder sb = new StringBuilder();
     sb.append("class ServiceInfo {\n");
 
-    sb.append("    workflowTypeVersions: ").append(toIndentedString(workflowTypeVersions)).append("\n");
-    sb.append("    supportedWesVersions: ").append(toIndentedString(supportedWesVersions)).append("\n");
-    sb.append("    supportedFilesystemProtocols: ").append(toIndentedString(supportedFilesystemProtocols)).append("\n");
-    sb.append("    workflowEngineVersions: ").append(toIndentedString(workflowEngineVersions)).append("\n");
-    sb.append("    defaultWorkflowEngineParameters: ").append(toIndentedString(defaultWorkflowEngineParameters)).append("\n");
+    sb.append("    workflowTypeVersions: ")
+        .append(toIndentedString(workflowTypeVersions))
+        .append("\n");
+    sb.append("    supportedWesVersions: ")
+        .append(toIndentedString(supportedWesVersions))
+        .append("\n");
+    sb.append("    supportedFilesystemProtocols: ")
+        .append(toIndentedString(supportedFilesystemProtocols))
+        .append("\n");
+    sb.append("    workflowEngineVersions: ")
+        .append(toIndentedString(workflowEngineVersions))
+        .append("\n");
+    sb.append("    defaultWorkflowEngineParameters: ")
+        .append(toIndentedString(defaultWorkflowEngineParameters))
+        .append("\n");
     sb.append("    systemStateCounts: ").append(toIndentedString(systemStateCounts)).append("\n");
-    sb.append("    authInstructionsUrl: ").append(toIndentedString(authInstructionsUrl)).append("\n");
+    sb.append("    authInstructionsUrl: ")
+        .append(toIndentedString(authInstructionsUrl))
+        .append("\n");
     sb.append("    contactInfoUrl: ").append(toIndentedString(contactInfoUrl)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
     sb.append("}");
@@ -326,8 +369,7 @@ public class ServiceInfo   {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

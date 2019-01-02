@@ -3,15 +3,14 @@ package bio.overture.wes.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import org.springframework.validation.annotation.Validated;
-
+import java.util.Objects;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
-import java.util.Objects;
+import org.springframework.validation.annotation.Validated;
 
 @ApiModel(description = "Small description of a workflow run, returned by server during listing")
 @Validated
-public class RunStatus   {
+public class RunStatus {
   @JsonProperty("run_id")
   private String runId = null;
 
@@ -25,12 +24,11 @@ public class RunStatus   {
 
   /**
    * Get runId
+   *
    * @return runId
-   **/
+   */
   @ApiModelProperty(required = true, value = "")
   @NotNull
-
-
   public String getRunId() {
     return runId;
   }
@@ -46,12 +44,11 @@ public class RunStatus   {
 
   /**
    * Get state
+   *
    * @return state
-   **/
+   */
   @ApiModelProperty(value = "")
-
   @Valid
-
   public State getState() {
     return state;
   }
@@ -59,7 +56,6 @@ public class RunStatus   {
   public void setState(State state) {
     this.state = state;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -70,8 +66,8 @@ public class RunStatus   {
       return false;
     }
     RunStatus runStatus = (RunStatus) o;
-    return Objects.equals(this.runId, runStatus.runId) &&
-      Objects.equals(this.state, runStatus.state);
+    return Objects.equals(this.runId, runStatus.runId)
+        && Objects.equals(this.state, runStatus.state);
   }
 
   @Override
@@ -91,8 +87,7 @@ public class RunStatus   {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

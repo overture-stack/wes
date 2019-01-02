@@ -3,16 +3,14 @@ package bio.overture.wes.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.util.Objects;
 import org.springframework.validation.annotation.Validated;
 
-import java.util.Objects;
-
-/**
- * A message that allows one to describe default parameters for a workflow engine.
- */
-@ApiModel(description = "A message that allows one to describe default parameters for a workflow engine.")
+/** A message that allows one to describe default parameters for a workflow engine. */
+@ApiModel(
+    description = "A message that allows one to describe default parameters for a workflow engine.")
 @Validated
-public class DefaultWorkflowEngineParameter   {
+public class DefaultWorkflowEngineParameter {
   @JsonProperty("name")
   private String name = null;
 
@@ -29,11 +27,10 @@ public class DefaultWorkflowEngineParameter   {
 
   /**
    * The name of the parameter
+   *
    * @return name
-   **/
+   */
   @ApiModelProperty(value = "The name of the parameter")
-
-
   public String getName() {
     return name;
   }
@@ -49,11 +46,10 @@ public class DefaultWorkflowEngineParameter   {
 
   /**
    * Describes the type of the parameter, e.g. float.
+   *
    * @return type
-   **/
+   */
   @ApiModelProperty(value = "Describes the type of the parameter, e.g. float.")
-
-
   public String getType() {
     return type;
   }
@@ -69,11 +65,10 @@ public class DefaultWorkflowEngineParameter   {
 
   /**
    * The stringified version of the default parameter. e.g. \"2.45\".
+   *
    * @return defaultValue
-   **/
+   */
   @ApiModelProperty(value = "The stringified version of the default parameter. e.g. \"2.45\".")
-
-
   public String getDefaultValue() {
     return defaultValue;
   }
@@ -81,7 +76,6 @@ public class DefaultWorkflowEngineParameter   {
   public void setDefaultValue(String defaultValue) {
     this.defaultValue = defaultValue;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,10 +85,11 @@ public class DefaultWorkflowEngineParameter   {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DefaultWorkflowEngineParameter defaultWorkflowEngineParameter = (DefaultWorkflowEngineParameter) o;
-    return Objects.equals(this.name, defaultWorkflowEngineParameter.name) &&
-      Objects.equals(this.type, defaultWorkflowEngineParameter.type) &&
-      Objects.equals(this.defaultValue, defaultWorkflowEngineParameter.defaultValue);
+    DefaultWorkflowEngineParameter defaultWorkflowEngineParameter =
+        (DefaultWorkflowEngineParameter) o;
+    return Objects.equals(this.name, defaultWorkflowEngineParameter.name)
+        && Objects.equals(this.type, defaultWorkflowEngineParameter.type)
+        && Objects.equals(this.defaultValue, defaultWorkflowEngineParameter.defaultValue);
   }
 
   @Override
@@ -115,8 +110,7 @@ public class DefaultWorkflowEngineParameter   {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {

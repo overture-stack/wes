@@ -2,13 +2,12 @@ package bio.overture.wes.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.annotations.ApiModelProperty;
-
-import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import javax.validation.Valid;
 
-public class Log   {
+public class Log {
   @JsonProperty("name")
   private String name = null;
 
@@ -38,11 +37,10 @@ public class Log   {
 
   /**
    * The task or workflow name
+   *
    * @return name
-   **/
+   */
   @ApiModelProperty(value = "The task or workflow name")
-
-
   public String getName() {
     return name;
   }
@@ -66,11 +64,10 @@ public class Log   {
 
   /**
    * The command line that was executed
+   *
    * @return cmd
-   **/
+   */
   @ApiModelProperty(value = "The command line that was executed")
-
-
   public List<String> getCmd() {
     return cmd;
   }
@@ -86,11 +83,11 @@ public class Log   {
 
   /**
    * When the command started executing, in ISO 8601 format \"%Y-%m-%dT%H:%M:%SZ\"
+   *
    * @return startTime
-   **/
-  @ApiModelProperty(value = "When the command started executing, in ISO 8601 format \"%Y-%m-%dT%H:%M:%SZ\"")
-
-
+   */
+  @ApiModelProperty(
+      value = "When the command started executing, in ISO 8601 format \"%Y-%m-%dT%H:%M:%SZ\"")
   public String getStartTime() {
     return startTime;
   }
@@ -105,12 +102,14 @@ public class Log   {
   }
 
   /**
-   * When the command stopped executing (completed, failed, or cancelled), in ISO 8601 format \"%Y-%m-%dT%H:%M:%SZ\"
+   * When the command stopped executing (completed, failed, or cancelled), in ISO 8601 format
+   * \"%Y-%m-%dT%H:%M:%SZ\"
+   *
    * @return endTime
-   **/
-  @ApiModelProperty(value = "When the command stopped executing (completed, failed, or cancelled), in ISO 8601 format \"%Y-%m-%dT%H:%M:%SZ\"")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "When the command stopped executing (completed, failed, or cancelled), in ISO 8601 format \"%Y-%m-%dT%H:%M:%SZ\"")
   public String getEndTime() {
     return endTime;
   }
@@ -125,12 +124,15 @@ public class Log   {
   }
 
   /**
-   * A URL to retrieve standard output logs of the workflow run or task.  This URL may change between status requests, or may not be available until the task or workflow has finished execution.  Should be available using the same credentials used to access the WES endpoint.
+   * A URL to retrieve standard output logs of the workflow run or task. This URL may change between
+   * status requests, or may not be available until the task or workflow has finished execution.
+   * Should be available using the same credentials used to access the WES endpoint.
+   *
    * @return stdout
-   **/
-  @ApiModelProperty(value = "A URL to retrieve standard output logs of the workflow run or task.  This URL may change between status requests, or may not be available until the task or workflow has finished execution.  Should be available using the same credentials used to access the WES endpoint.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "A URL to retrieve standard output logs of the workflow run or task.  This URL may change between status requests, or may not be available until the task or workflow has finished execution.  Should be available using the same credentials used to access the WES endpoint.")
   public String getStdout() {
     return stdout;
   }
@@ -145,12 +147,15 @@ public class Log   {
   }
 
   /**
-   * A URL to retrieve standard error logs of the workflow run or task.  This URL may change between status requests, or may not be available until the task or workflow has finished execution.  Should be available using the same credentials used to access the WES endpoint.
+   * A URL to retrieve standard error logs of the workflow run or task. This URL may change between
+   * status requests, or may not be available until the task or workflow has finished execution.
+   * Should be available using the same credentials used to access the WES endpoint.
+   *
    * @return stderr
-   **/
-  @ApiModelProperty(value = "A URL to retrieve standard error logs of the workflow run or task.  This URL may change between status requests, or may not be available until the task or workflow has finished execution.  Should be available using the same credentials used to access the WES endpoint.")
-
-
+   */
+  @ApiModelProperty(
+      value =
+          "A URL to retrieve standard error logs of the workflow run or task.  This URL may change between status requests, or may not be available until the task or workflow has finished execution.  Should be available using the same credentials used to access the WES endpoint.")
   public String getStderr() {
     return stderr;
   }
@@ -166,11 +171,10 @@ public class Log   {
 
   /**
    * Exit code of the program
+   *
    * @return exitCode
-   **/
+   */
   @ApiModelProperty(value = "Exit code of the program")
-
-
   public Integer getExitCode() {
     return exitCode;
   }
@@ -178,7 +182,6 @@ public class Log   {
   public void setExitCode(Integer exitCode) {
     this.exitCode = exitCode;
   }
-
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -189,13 +192,13 @@ public class Log   {
       return false;
     }
     Log log = (Log) o;
-    return Objects.equals(this.name, log.name) &&
-      Objects.equals(this.cmd, log.cmd) &&
-      Objects.equals(this.startTime, log.startTime) &&
-      Objects.equals(this.endTime, log.endTime) &&
-      Objects.equals(this.stdout, log.stdout) &&
-      Objects.equals(this.stderr, log.stderr) &&
-      Objects.equals(this.exitCode, log.exitCode);
+    return Objects.equals(this.name, log.name)
+        && Objects.equals(this.cmd, log.cmd)
+        && Objects.equals(this.startTime, log.startTime)
+        && Objects.equals(this.endTime, log.endTime)
+        && Objects.equals(this.stdout, log.stdout)
+        && Objects.equals(this.stderr, log.stderr)
+        && Objects.equals(this.exitCode, log.exitCode);
   }
 
   @Override
@@ -205,20 +208,33 @@ public class Log   {
 
   @Override
   public String toString() {
-    return "class Log {\n" +
-      "    name: " + toIndentedString(name) + "\n" +
-      "    cmd: " + toIndentedString(cmd) + "\n" +
-      "    startTime: " + toIndentedString(startTime) + "\n" +
-      "    endTime: " + toIndentedString(endTime) + "\n" +
-      "    stdout: " + toIndentedString(stdout) + "\n" +
-      "    stderr: " + toIndentedString(stderr) + "\n" +
-      "    exitCode: " + toIndentedString(exitCode) + "\n" +
-      "}";
+    return "class Log {\n"
+        + "    name: "
+        + toIndentedString(name)
+        + "\n"
+        + "    cmd: "
+        + toIndentedString(cmd)
+        + "\n"
+        + "    startTime: "
+        + toIndentedString(startTime)
+        + "\n"
+        + "    endTime: "
+        + toIndentedString(endTime)
+        + "\n"
+        + "    stdout: "
+        + toIndentedString(stdout)
+        + "\n"
+        + "    stderr: "
+        + toIndentedString(stderr)
+        + "\n"
+        + "    exitCode: "
+        + toIndentedString(exitCode)
+        + "\n"
+        + "}";
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
